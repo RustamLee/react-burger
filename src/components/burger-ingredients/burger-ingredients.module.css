@@ -1,5 +1,21 @@
 
+.ingredients {
+  width: 600px;
+  height: 912px;
+  overflow-y: auto;
+  outline: 1px solid rebeccapurple;
+}
+
 .ingredient {
-  width: 200px;
-  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  height: 208px;
+  outline: 1px solid red;
 }

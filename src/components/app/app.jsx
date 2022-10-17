@@ -4,6 +4,8 @@ import AppHeader from "../app-header/app-header";
 import { apiConfig } from "../burger.config";
 import styles from './app.module.css';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
+import BurgerConstructor from '../burger-constructor/burger-constructor';
+
 export default function App() {
     const [ingredients, setIngredients] = React.useState([]);
     React.useEffect(() => {
@@ -25,9 +27,14 @@ export default function App() {
     return (
         <>
             <AppHeader />
-            <div className= {styles.mainsection}>
-            <BurgerIngredients ingredients={ingredients}/>
-            </div>
+            <main className= {styles.mainsection}>
+                <div>
+                <BurgerIngredients ingredients={ingredients}/>
+                </div>
+                <div>
+                <BurgerConstructor/>
+                </div>
+            </main>
             
         </>
     )

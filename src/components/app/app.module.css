@@ -1,5 +1,9 @@
 .mainsection {
-    width: 400px;
-    height: 500px;
+    width: 1240px;
+    height: 912px;
     outline: 1px solid rebeccapurple;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
 }
