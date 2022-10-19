@@ -5,6 +5,11 @@
   outline: 1px solid rebeccapurple;
 }
 
+.container {
+  overflow-y: auto;
+
+}
+
 .ingredient {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -17,7 +22,6 @@
   flex-direction: column;
   width: 272px;
   height: 208px;
-  outline: 1px solid red;
   align-items: center;
 }
 
@@ -42,6 +46,6 @@
 .part {
   width: 272px;
   height: 48px;
-  margin: 0;
+  margin-top: 8px;
   text-align: center;
 }
