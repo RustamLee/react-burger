@@ -1,5 +1,40 @@
-.constructor{
-    width: 600px;
-    height: 912px;
-    outline: 1px solid rebeccapurple;
-  }
+.constructor {
+  width: 600px;
+  height: 66vh;
+}
+
+.main {
+  overflow-y: auto;
+}
+
+.bun {
+  margin-left: 24px;
+}
+
+.main::-webkit-scrollbar {
+  width: 12px;
+}
+
+.main::-webkit-scrollbar-track {
+  background: #2F2F37;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #8585AD;
+  border: 3px solid #2F2F37;
+  border-radius: 6px;
+}
+
+.button {
+  margin-top: 60px;
+  display: flex;
+  justify-content: end;
+  margin-right: 24px;
+  align-items: center;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  margin-right: 41px;
+}

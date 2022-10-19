@@ -1,13 +1,25 @@
 .ingredients {
   width: 600px;
-  height: 912px;
-  overflow-y: auto;
-  outline: 1px solid rebeccapurple;
 }
 
 .container {
   overflow-y: auto;
+  width: 600px;
+  height: 70vh;
+}
 
+.container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #2F2F37;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #8585AD;
+  border: 3px solid #2F2F37;
+  border-radius: 6px;
 }
 
 .ingredient {
@@ -23,6 +35,7 @@
   width: 272px;
   height: 208px;
   align-items: center;
+  position: relative;
 }
 
 .title {
