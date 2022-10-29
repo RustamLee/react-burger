@@ -30,7 +30,7 @@ export default function Modal({ onClick, closeModal, children }) {
           <div className={styles.closeIcon}><CloseIcon onClick={closeModal} /></div>
         </div>
       </>,
-      document.getElementById('root')
+      document.getElementById('modals')
     )
   }
   
