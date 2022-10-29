@@ -1,8 +1,11 @@
 import React from "react";
 import styles from './burger-constructor.module.css';
 import { ConstructorElement, Button, DragIcon, CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
+import PropTypes from 'prop-types';
 
-export default function BurgerConstructor() {
+BurgerConstructor.propTypes = {orderOpen: PropTypes.func.isRequired}
+
+export default function BurgerConstructor({orderOpen}) {
   const img = 'https://code.s3.yandex.net/react/code/bun-02.png';
 
   return (
@@ -92,7 +95,7 @@ export default function BurgerConstructor() {
             <CurrencyIcon type='primary' />
           </div>
         </div>
-        <Button type="primary" size="medium" >Оформить заказ</Button>
+      <Button type="primary" size="medium" onClick={orderOpen}>Оформить заказ</Button>
       </div>
     </div>
   )

@@ -5,6 +5,12 @@ import { apiConfig } from "../burger.config";
 import styles from './app.module.css';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
+import ModalOverlay from '../modal-overlay/modal-overlay';
+import Modal from '../modal/modal'
+import IngredientDetails from '../ingredient-detail/ingredient-detail';
+import OrderDetails from '../order-details/order-details';
+
+
 
 export default function App() {
     const [ingredients, setIngredients] = React.useState([]);
@@ -24,18 +30,36 @@ export default function App() {
                 console.log(err)
             })
     }, [])
-    return (
+    const [element, setElement] = React.useState({});
+    const [isOpen, setOpen] = React.useState(false);
+    const burgerIngredientOpen = (event, element) => {
+        setElement(element);
+        console.log(element)
+        setOpen(!isOpen);
+    }
+    const closeModal =()=>{
+        setOpen(!isOpen);
+    }
+    const orderOpen = () =>{
+        setElement (null);
+        setOpen(!isOpen);
+    }
+        return (
         <>
             <AppHeader />
-            <main className= {styles.mainsection}>
+            <main className={styles.mainsection}>
                 <div>
-                <BurgerIngredients ingredients={ingredients}/>
+                    <BurgerIngredients ingredients={ingredients} burgerIngredientOpen={burgerIngredientOpen}/>
                 </div>
                 <div>
-                <BurgerConstructor/>
+                    <BurgerConstructor orderOpen={orderOpen}/>
                 </div>
             </main>
-            
+            {isOpen? <Modal closeModal={closeModal} onClick={closeModal}>
+                { element?<IngredientDetails element={element}/>
+                :<OrderDetails/>}
+            </Modal>
+            : null}
         </>
     )
 }

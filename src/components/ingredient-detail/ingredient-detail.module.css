@@ -1,0 +1,38 @@
+.title {
+    text-align: start;
+    margin-left: 40px;
+    margin-top: 40px
+  }
+
+  .image {
+    width: 480px;
+    height: 240px;
+    align-self: center;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  .nutrition {
+    display: flex;
+    justify-content: space-between;
+    width: 516px;
+    height: 56px;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .listItem {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
