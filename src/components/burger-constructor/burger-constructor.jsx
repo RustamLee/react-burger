@@ -2,6 +2,8 @@ import React from "react";
 import styles from './burger-constructor.module.css';
 import { ConstructorElement, Button, DragIcon, CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from 'prop-types';
+import {doIngredient, deleteIngredient} from '../../services/actions/constructor';
+
 
 BurgerConstructor.propTypes = {orderOpen: PropTypes.func.isRequired}
 
@@ -15,8 +17,8 @@ export default function BurgerConstructor({orderOpen}) {
           <ConstructorElement
             type="top"
             isLocked={true}
-            text="Краторная булка N-200i (верх)"
-            price={200}
+            text=""
+            price={20}
             thumbnail={img}
           />
         </div>
@@ -24,56 +26,8 @@ export default function BurgerConstructor({orderOpen}) {
           <div>
             <DragIcon type="primary" className={styles.drag} />
             <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={img}
-            />
-          </div>
-          <div>
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={img}
-            />
-          </div>
-          <div>
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={img}
-            />
-          </div>
-          <div>
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={img}
-            />
-          </div>
-          <div>
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={img}
-            />
-          </div>
-          <div>
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={img}
-            />
-          </div>
-          <div>
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
+              text=""
+              price= {20}
               thumbnail={img}
             />
           </div>
@@ -82,8 +36,8 @@ export default function BurgerConstructor({orderOpen}) {
           <ConstructorElement
             type="bottom"
             isLocked={true}
-            text="Краторная булка N-200i (низ)"
-            price={200}
+            text=""
+            price={20}
             thumbnail={img}
           />
         </div>

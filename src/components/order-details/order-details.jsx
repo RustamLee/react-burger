@@ -2,7 +2,6 @@ import React from "react";
 import styles from './order-details.module.css';
 import accept from '../../images/done.svg'; 
 
-
 export default function OrderDetails () {
 
     return(

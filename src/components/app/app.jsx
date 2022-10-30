@@ -9,11 +9,16 @@ import ModalOverlay from '../modal-overlay/modal-overlay';
 import Modal from '../modal/modal'
 import IngredientDetails from '../ingredient-detail/ingredient-detail';
 import OrderDetails from '../order-details/order-details';
-
-
+import {useDispatch, useSelector} from 'react-redux';
+import {getIngredients} from '../../services/actions/ingredients';
+import {getIngredientsDetails} from '../../services/actions/ingredient-details';
+import {DndProvider} from 'react-dnd';
+import {HTML5Backend} from 'react-dnd-html5-backend'; 
 
 export default function App() {
-    const [ingredients, setIngredients] = React.useState([]);
+    const ingredients = useSelector(store => store.ingredientsSet.ingredients);
+    const dispatch = useDispatch();
+
     React.useEffect(() => {
         fetch(apiConfig.baseUrl)
             .then((res) => {
@@ -23,7 +28,7 @@ export default function App() {
             })
             .then(({ success, data }) => {
                 if (success === true) {
-                    setIngredients(data)
+                    dispatch (getIngredients(data))
                 }
             })
             .catch((err) => {
@@ -32,9 +37,9 @@ export default function App() {
     }, [])
     const [element, setElement] = React.useState({});
     const [isOpen, setOpen] = React.useState(false);
+
     const burgerIngredientOpen = (event, element) => {
-        setElement(element);
-        console.log(element)
+        dispatch (getIngredientsDetails(element))
         setOpen(!isOpen);
     }
     const closeModal =()=>{
@@ -45,11 +50,12 @@ export default function App() {
         setOpen(!isOpen);
     }
         return (
+    <DndProvider backend={HTML5Backend}>
         <>
             <AppHeader />
             <main className={styles.mainsection}>
                 <div>
-                    <BurgerIngredients ingredients={ingredients} burgerIngredientOpen={burgerIngredientOpen}/>
+                    <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen}/>
                 </div>
                 <div>
                     <BurgerConstructor orderOpen={orderOpen}/>
@@ -61,5 +67,6 @@ export default function App() {
             </Modal>
             : null}
         </>
+        </DndProvider>
     )
 }
