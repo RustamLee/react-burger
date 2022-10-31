@@ -1,12 +1,15 @@
 import React from "react";
 import styles from './order-details.module.css';
 import accept from '../../images/done.svg'; 
+import { useSelector } from "react-redux";
+
 
 export default function OrderDetails () {
-
+    const id = useSelector(store => store.orderDetail.id)
+    console.log(id)
     return(
     <div className= {styles.order}>
-      <h2 className={`${styles.title} text text_type_digits-large`}>034536</h2>
+      <h2 className={`${styles.title} text text_type_digits-large`}>{id}</h2>
       <h3 className={`${styles.subtitle} text text_type_main-medium`}>идентификатор заказа</h3>
       <img className={styles.image} src={accept}/>
       <p style={{marginBottom: 8}}  className="text text_type_main-small">

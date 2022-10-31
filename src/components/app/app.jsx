@@ -9,64 +9,61 @@ import ModalOverlay from '../modal-overlay/modal-overlay';
 import Modal from '../modal/modal'
 import IngredientDetails from '../ingredient-detail/ingredient-detail';
 import OrderDetails from '../order-details/order-details';
-import {useDispatch, useSelector} from 'react-redux';
-import {getIngredients} from '../../services/actions/ingredients';
-import {getIngredientsDetails} from '../../services/actions/ingredient-details';
-import {DndProvider} from 'react-dnd';
-import {HTML5Backend} from 'react-dnd-html5-backend'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { getIngredientsThunk } from '../../services/actions/ingredients';
+import { getIngredientsDetails } from '../../services/actions/ingredient-details';
+import { getOrderIdThunk } from '../../services/actions/order-details'
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 export default function App() {
     const ingredients = useSelector(store => store.ingredientsSet.ingredients);
     const dispatch = useDispatch();
+    const items = useSelector(store => store.items.items);
+    const bun = useSelector(store => store.items.bun);
+    const idSet = [...items, ...bun].map(element => element._id);
 
     React.useEffect(() => {
-        fetch(apiConfig.baseUrl)
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-            })
-            .then(({ success, data }) => {
-                if (success === true) {
-                    dispatch (getIngredients(data))
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        dispatch(getOrderIdThunk(idSet));
+    });
+
+    React.useEffect(() => {
+        dispatch(getIngredientsThunk())
     }, [])
+
     const [element, setElement] = React.useState({});
     const [isOpen, setOpen] = React.useState(false);
 
     const burgerIngredientOpen = (event, element) => {
-        dispatch (getIngredientsDetails(element))
+        setElement(element);
+        dispatch(getIngredientsDetails(element));
         setOpen(!isOpen);
     }
-    const closeModal =()=>{
+    const closeModal = () => {
         setOpen(!isOpen);
     }
-    const orderOpen = () =>{
-        setElement (null);
+    const orderOpen = () => {
+        setElement(null);
         setOpen(!isOpen);
     }
-        return (
-    <DndProvider backend={HTML5Backend}>
-        <>
-            <AppHeader />
-            <main className={styles.mainsection}>
-                <div>
-                    <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen}/>
-                </div>
-                <div>
-                    <BurgerConstructor orderOpen={orderOpen}/>
-                </div>
-            </main>
-            {isOpen? <Modal closeModal={closeModal} onClick={closeModal}>
-                { element?<IngredientDetails element={element}/>
-                :<OrderDetails/>}
-            </Modal>
-            : null}
-        </>
+    return (
+        <DndProvider backend={HTML5Backend}>
+            <>
+                <AppHeader />
+                <main className={styles.mainsection}>
+                    <div>
+                        <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
+                    </div>
+                    <div>
+                        <BurgerConstructor orderOpen={orderOpen} />
+                    </div>
+                </main>
+                {isOpen ? <Modal closeModal={closeModal} onClick={closeModal}>
+                    {element ? <IngredientDetails element={element} />
+                        : <OrderDetails />}
+                </Modal>
+                    : null}
+            </>
         </DndProvider>
     )
 }

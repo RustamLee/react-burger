@@ -11,6 +11,10 @@ BurgerConstructor.propTypes = { orderOpen: PropTypes.func.isRequired }
 
 export default function BurgerConstructor({ orderOpen }) {
 
+  const deleteElement = (element) => {
+    dispatch(deleteIngredient(element))
+  };
+  
   const dispatch = useDispatch();
   const items = useSelector(store => store.items.items);
   const bun = useSelector(store => store.items.bun);
@@ -52,6 +56,8 @@ export default function BurgerConstructor({ orderOpen }) {
               text={item.name}
               price={item.price}
               thumbnail={item.image}
+              onClick={()=> deleteElement(item)}
+              
             />
           </div> : null)}
         </div>
