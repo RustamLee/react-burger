@@ -29,36 +29,10 @@
   row-gap: 32px;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 272px;
-  height: 208px;
-  align-items: center;
-  position: relative;
-}
-
 .title {
   margin: 40px 20px;
 }
 
 .block {
   margin: 40px 0px 24px 0px;
-}
-
-.price {
-  display: flex;
-  align-items: center;
-}
-
-.image {
-  width: 240px;
-  height: 120px;
-}
-
-.part {
-  width: 272px;
-  height: 48px;
-  margin-top: 8px;
-  text-align: center;
 }
