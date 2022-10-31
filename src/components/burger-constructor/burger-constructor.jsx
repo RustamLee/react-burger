@@ -1,20 +1,19 @@
 import React from "react";
 import styles from './burger-constructor.module.css';
-import { ConstructorElement, Button, DragIcon, CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
+import { ConstructorElement, Button, CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from 'prop-types';
 import { doIngredient, deleteIngredient, addBun } from '../../services/actions/constructor';
 import { useDrop } from 'react-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
+import {InsideElement} from '../inside-element/inside-element';
 
 BurgerConstructor.propTypes = { orderOpen: PropTypes.func.isRequired }
-
 export default function BurgerConstructor({ orderOpen }) {
 
   const deleteElement = (element) => {
     dispatch(deleteIngredient(element))
   };
-  
   const dispatch = useDispatch();
   const items = useSelector(store => store.items.items);
   const bun = useSelector(store => store.items.bun);
@@ -49,17 +48,7 @@ export default function BurgerConstructor({ orderOpen }) {
           /> : null)}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }} className={styles.main}>
-          {items.map(item => item.type !== 'bun' ? <div key={item.id} >
-            <DragIcon type="primary" className={styles.drag} />
-            <ConstructorElement
-              id={item.id}
-              text={item.name}
-              price={item.price}
-              thumbnail={item.image}
-              onClick={()=> deleteElement(item)}
-              
-            />
-          </div> : null)}
+          {items.map((item, index) => item.type !== 'bun' ? <InsideElement key={item.id} item={item} index={index} id={item.id} deleteElement={deleteElement}/>: null)}
         </div>
         <div className={styles.bun}>
           {bun.map(item => item.type === 'bun' ? <ConstructorElement

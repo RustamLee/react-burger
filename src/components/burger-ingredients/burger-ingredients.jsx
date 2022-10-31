@@ -3,7 +3,8 @@ import styles from './burger-ingredients.module.css'
 import Tab from "../tabs/tab";
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { Ingredient } from '../ingredient/ingredient'
+import { Ingredient } from '../ingredient/ingredient';
+import { useRef } from 'react';
 
 BurgerIngredients.propTypes = {
   burgerIngredientOpen: PropTypes.func.isRequired

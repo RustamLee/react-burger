@@ -1,8 +1,10 @@
 import {
     DO_INGREDIENT,
     DELETE_INGREDIENT,
-    DO_BUN
+    DO_BUN,
+    MOVE_INGREDIENT,
 } from './../actions/constructor';
+import update from 'immutability-helper';
 
 const initialState = {
     items: [],
@@ -32,6 +34,18 @@ export function reduceItems(state = initialState, action) {
                     ? state.bun : [action.item]
             }
         }
+        case MOVE_INGREDIENT: {
+            return {
+                ...state,
+                items: update(state.items, {
+                    $splice: [
+                      [action.dragIndex, 1],
+                      [action.hoverIndex, 0, state.items[action.dragIndex]],
+                    ],
+                  }),
+            }
+        }
+
         default: {
             return state;
         }
