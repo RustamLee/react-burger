@@ -35,7 +35,7 @@ export default function BurgerConstructor({ orderOpen }) {
 
   return (
     <div className={styles.constructor} ref={drop}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '100px', height: '66vh' }}>
+      <div className= {styles.burgerConstructor}>
         <div className={styles.bun}>
           {bun.map(item => item.type === 'bun' ? <ConstructorElement
             key={item.id}
@@ -47,7 +47,7 @@ export default function BurgerConstructor({ orderOpen }) {
             thumbnail={item.image}
           /> : null)}
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }} className={styles.main}>
+        <div className={styles.main}>
           {items.map((item, index) => item.type !== 'bun' ? <InsideElement key={item.id} item={item} index={index} id={item.id} deleteElement={deleteElement}/>: null)}
         </div>
         <div className={styles.bun}>

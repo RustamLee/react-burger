@@ -15,14 +15,15 @@ export const getOrderIdThunk = (idSet) => {
                 ingredients: idSet
             })
         })
-        .then((res) => {
-            if (res.ok) {
-                return res.json();
-            }
-        })
-        .then(({ order: { number } }) => {
-            dispatch(getOrderId(number))
-        })
-        .catch(console.warn)
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+            })
+            .then(({ order }) => {/*  */
+                const { number } = order;/*  */
+                dispatch(getOrderId(number));
+            })
+            .catch((err) => console.log(err))/*  */
     }
 }

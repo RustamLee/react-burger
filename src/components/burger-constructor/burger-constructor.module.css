@@ -4,6 +4,9 @@
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   overflow-y: auto;
 }
 
@@ -37,4 +40,12 @@
   display: flex;
   align-items: center;
   margin-right: 41px;
+}
+
+.burgerConstructor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 100px;
+  height: 66vh;
 }

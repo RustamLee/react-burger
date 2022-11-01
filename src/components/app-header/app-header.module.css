@@ -29,6 +29,7 @@
   color: #F2F2F3;
   min-width: 178px;
   max-height: 56px;
+  text-decoration: none;
 }
 
 .icon {
@@ -60,16 +61,11 @@
   cursor: pointer;
 }
 
-
-
 .title:hover {
   color: #F2F2F3;
   opacity: .6;
   cursor: pointer;
 }
-
-
-
 
 .order {
   display: flex;
