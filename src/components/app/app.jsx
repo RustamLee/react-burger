@@ -47,13 +47,13 @@ export default function App() {
             <>
                 <AppHeader />
                 <main className={styles.mainsection}>
-                        <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
-                        <BurgerConstructor orderOpen={orderOpen} />
+                    <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
+                    <BurgerConstructor orderOpen={orderOpen} />
                 </main>
-                {isOpen ? <Modal closeModal={closeModal} onClick={closeModal}>
+                {isOpen ? (<Modal closeModal={closeModal} onClick={closeModal}>
                     {element ? <IngredientDetails element={element} />
                         : <OrderDetails />}
-                </Modal>
+                </Modal>)
                     : null}
             </>
         </DndProvider>

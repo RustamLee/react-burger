@@ -6,7 +6,7 @@ import { doIngredient, deleteIngredient, addBun } from '../../services/actions/c
 import { useDrop } from 'react-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import {InsideElement} from '../inside-element/inside-element';
+import { InsideElement } from '../inside-element/inside-element';
 
 BurgerConstructor.propTypes = { orderOpen: PropTypes.func.isRequired }
 export default function BurgerConstructor({ orderOpen }) {
@@ -35,7 +35,7 @@ export default function BurgerConstructor({ orderOpen }) {
 
   return (
     <div className={styles.constructor} ref={drop}>
-      <div className= {styles.burgerConstructor}>
+      <div className={styles.burgerConstructor}>
         <div className={styles.bun}>
           {bun.map(item => item.type === 'bun' ? <ConstructorElement
             key={item.id}
@@ -48,7 +48,7 @@ export default function BurgerConstructor({ orderOpen }) {
           /> : null)}
         </div>
         <div className={styles.main}>
-          {items.map((item, index) => item.type !== 'bun' ? <InsideElement key={item.id} item={item} index={index} id={item.id} deleteElement={deleteElement}/>: null)}
+          {items.map((item, index) => item.type !== 'bun' ? <InsideElement key={item.id} item={item} index={index} id={item.id} deleteElement={deleteElement} /> : null)}
         </div>
         <div className={styles.bun}>
           {bun.map(item => item.type === 'bun' ? <ConstructorElement
@@ -62,16 +62,16 @@ export default function BurgerConstructor({ orderOpen }) {
           /> : null)}
         </div>
       </div>
-      <div className={styles.button}>
-        <div>
+      {items.length || bun.length
+        ? <div className={styles.button}>
           <div className={styles.total}>
             <p className="text text_type_digits-medium mr-3">{constructorPrice}</p>
             <CurrencyIcon type='primary' />
           </div>
+
+          <Button htmlType="submit" type="primary" size="medium" onClick={orderOpen}>Оформить заказ</Button>
         </div>
-        
-        <Button htmlType="submit" type="primary" size="medium" onClick={orderOpen}>Оформить заказ</Button>
-      </div>
+        : null}
     </div>
   )
 }
