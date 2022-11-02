@@ -1,8 +1,8 @@
 import React from "react";
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
-import styles from './tabs.module.css';
 import { useSelector, useDispatch } from "react-redux";/*  */
 import { selectTabs, selectScroll } from "../../services/actions/tabs";/*  */
+import styles from './tab.module.css';
 
 export default function Tabs() {
   /*  */
@@ -14,7 +14,7 @@ export default function Tabs() {
   }
   /*  */
   return (
-    <div style={{ display: 'flex' }}>
+    <div className={styles.tab}>
       <Tab value="one" active={current === 'one'} onClick={setCurrent}>
         Булки
       </Tab>

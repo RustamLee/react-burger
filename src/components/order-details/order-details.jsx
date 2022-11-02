@@ -12,10 +12,10 @@ export default function OrderDetails () {
       <h2 className={`${styles.title} text text_type_digits-large`}>{id}</h2>
       <h3 className={`${styles.subtitle} text text_type_main-medium`}>идентификатор заказа</h3>
       <img className={styles.image} src={accept}/>
-      <p style={{marginBottom: 8}}  className="text text_type_main-small">
+      <p className={`${styles.result} text text_type_main-small`}>
         Ваш заказ начали готовить
       </p>
-      <p style={{marginBottom: 120}} className="text text_type_main-small">
+      <p className={`${styles.waitResult} text text_type_main-small`}>
         Дождитесь готовности на орбитальной станции
       </p>
     </div>

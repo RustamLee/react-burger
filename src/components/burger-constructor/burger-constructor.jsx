@@ -42,7 +42,7 @@ export default function BurgerConstructor({ orderOpen }) {
             id={item.id}
             type="top"
             isLocked={true}
-            text={item.name}
+            text={`${item.name} (верх)`}
             price={item.price}
             thumbnail={item.image}
           /> : null)}
@@ -56,7 +56,7 @@ export default function BurgerConstructor({ orderOpen }) {
             id={item.id}
             type="bottom"
             isLocked={true}
-            text={item.name}
+            text={`${item.name} (низ)`}
             price={item.price}
             thumbnail={item.image}
           /> : null)}
@@ -69,7 +69,8 @@ export default function BurgerConstructor({ orderOpen }) {
             <CurrencyIcon type='primary' />
           </div>
         </div>
-        <Button type="primary" size="medium" onClick={orderOpen}>Оформить заказ</Button>
+        
+        <Button htmlType="submit" type="primary" size="medium" onClick={orderOpen}>Оформить заказ</Button>
       </div>
     </div>
   )

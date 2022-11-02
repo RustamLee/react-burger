@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from "react";
 import AppHeader from "../app-header/app-header";
-import { apiConfig } from "../burger.config";
 import styles from './app.module.css';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
@@ -24,10 +23,6 @@ export default function App() {
     const idSet = [...items, ...bun].map(element => element._id);
 
     React.useEffect(() => {
-        dispatch(getOrderIdThunk(idSet));
-    });
-
-    React.useEffect(() => {
         dispatch(getIngredientsThunk())
     }, [])
 
@@ -44,6 +39,7 @@ export default function App() {
     }
     const orderOpen = () => {
         setElement(null);
+        dispatch(getOrderIdThunk(idSet));
         setOpen(!isOpen);
     }
     return (
@@ -51,12 +47,8 @@ export default function App() {
             <>
                 <AppHeader />
                 <main className={styles.mainsection}>
-                    <div>
                         <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
-                    </div>
-                    <div>
                         <BurgerConstructor orderOpen={orderOpen} />
-                    </div>
                 </main>
                 {isOpen ? <Modal closeModal={closeModal} onClick={closeModal}>
                     {element ? <IngredientDetails element={element} />
