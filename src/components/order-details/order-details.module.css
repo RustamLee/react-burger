@@ -18,3 +18,11 @@
     height: 120px;
     margin: 60px auto 60px auto;
 }
+
+.result {
+    margin-bottom: 8px;
+}
+
+.waitResult {
+    margin-bottom: 120px;
+}

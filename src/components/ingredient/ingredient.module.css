@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  height: 208px;
+  align-items: center;
+  position: relative;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  width: 240px;
+  height: 120px;
+}
+
+.part {
+  width: 272px;
+  height: 48px;
+  margin-top: 8px;
+  text-align: center;
+}

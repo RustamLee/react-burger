@@ -1,12 +1,9 @@
 import React from "react";
 import styles from './ingredient-detail.module.css';
-import PropTypes from 'prop-types';
-import {burgerIngredientType} from '../../utils/types';
+import {useSelector} from 'react-redux'; 
+export default function IngredientDetails () {
 
-IngredientDetails.propTypes = {element: burgerIngredientType.isRequired}
-
-export default function IngredientDetails ({element}) {
-    console.log (element)
+    const element = useSelector(store => store.ingredientDetails.ingredient)
 
     return(
         <div className= {styles.details}>

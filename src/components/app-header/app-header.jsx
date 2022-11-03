@@ -9,10 +9,12 @@ export default function AppHeader() {
       <nav className={styles.nav}>
         <div className={styles.container}>
           <div className={styles.constructor} >
+          <a href= "#" className= {styles.constructor}>
             <div className={`${styles.icon} ${styles.active}`}><BurgerIcon type="primary" /></div>
             <p className={`${styles.title} ${styles.active} text text_type_main-default ml-2`}>
               Конструктор
             </p>
+            </a>
           </div>
           <div className={styles.order}>
             <div className={styles.icon}><ListIcon type="secondary" /></div>
