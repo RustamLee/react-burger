@@ -14,7 +14,12 @@ import { getIngredientsDetails } from '../../services/actions/ingredient-details
 import { getOrderIdThunk } from '../../services/actions/order-details'
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-
+import { Login } from '../../pages/login';
+import { Registration } from '../../pages/registration';
+import { ForgotPassword } from '../../pages/forgot-password';
+import { ResetPassword } from '../../pages/reset-password';
+import { Profile } from '../../pages/profile';
+ 
 export default function App() {
     const ingredients = useSelector(store => store.ingredientsSet.ingredients);
     const dispatch = useDispatch();
@@ -47,8 +52,15 @@ export default function App() {
             <>
                 <AppHeader />
                 <main className={styles.mainsection}>
-                    <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
+                   <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
                     <BurgerConstructor orderOpen={orderOpen} />
+{/*                     
+                    <Login /> 
+                    <Registration />
+                    <ForgotPassword />
+                    <ResetPassword />
+                    <Profile />
+*/}
                 </main>
                 {isOpen ? (<Modal closeModal={closeModal} onClick={closeModal}>
                     {element ? <IngredientDetails element={element} />

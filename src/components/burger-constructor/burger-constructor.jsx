@@ -68,7 +68,6 @@ export default function BurgerConstructor({ orderOpen }) {
             <p className="text text_type_digits-medium mr-3">{constructorPrice}</p>
             <CurrencyIcon type='primary' />
           </div>
-
           <Button htmlType="submit" type="primary" size="medium" onClick={orderOpen}>Оформить заказ</Button>
         </div>
         : null}
