@@ -1,8 +1,0 @@
-.mainsection {
-    width: 1240px;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    justify-content: space-between;
-}

@@ -19,8 +19,12 @@ import { Registration } from '../../pages/registration';
 import { ForgotPassword } from '../../pages/forgot-password';
 import { ResetPassword } from '../../pages/reset-password';
 import { Profile } from '../../pages/profile';
- 
+import { Switch, Route, useLocation } from 'react-router-dom';
+import { Main } from '../main/main';
+
 export default function App() {
+    const location = useLocation();
+    let background = location.state && location.state.background;
     const ingredients = useSelector(store => store.ingredientsSet.ingredients);
     const dispatch = useDispatch();
     const items = useSelector(store => store.items.items);
@@ -49,25 +53,40 @@ export default function App() {
     }
     return (
         <DndProvider backend={HTML5Backend}>
-            <>
-                <AppHeader />
-                <main className={styles.mainsection}>
-                   <BurgerIngredients burgerIngredientOpen={burgerIngredientOpen} />
-                    <BurgerConstructor orderOpen={orderOpen} />
-{/*                     
-                    <Login /> 
+            <AppHeader />
+            <Switch location={background || location}>
+                <Route path='/login' exact={true}>
+                    <Login />
+                </Route>
+                <Route path='/register' exact={true}>
                     <Registration />
+                </Route>
+                <Route path='/forgot-password' exact={true}>
                     <ForgotPassword />
+                </Route>
+                <Route path='/reset-password' exact={true}>
                     <ResetPassword />
+                </Route>
+                <Route path='/profile' exact={true}>
                     <Profile />
-*/}
-                </main>
+                </Route>
+                <Route path='/ingredients/:id'>
+                    {/* <IngredientPage></IngredientPage> */}
+                </Route>
+
+                <Route path='/' exact={true}>
+                    <Main burgerIngredientOpen={burgerIngredientOpen}
+                        orderOpen={orderOpen} />
+                </Route>
                 {isOpen ? (<Modal closeModal={closeModal} onClick={closeModal}>
                     {element ? <IngredientDetails element={element} />
                         : <OrderDetails />}
                 </Modal>)
                     : null}
-            </>
+                <Route path='*'>
+                    {/* <Page404></Page404> */}
+                </Route>
+            </Switch>
         </DndProvider>
     )
 }
