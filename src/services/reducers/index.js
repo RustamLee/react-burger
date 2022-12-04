@@ -6,7 +6,9 @@ import { reduceItems } from './constructor';
 import { selectTabsReducer } from './tabs';/*  */
 import { reduceNewPassword } from './recover-password';
 import { reduceSetPassword } from './reset-password';
-import { reduceCreateUser } from './create-user'
+import { reduceCreateUser } from './create-user';
+import { reduceLoginUser } from './login-user';
+import { reduceUserInfo } from './user-info';
 
 export const mainReducer = combineReducers({
     ingredientsSet: reduceIngredients,
@@ -16,6 +18,8 @@ export const mainReducer = combineReducers({
     tabs: selectTabsReducer,
     recover: reduceNewPassword,
     set: reduceSetPassword,
-    user: reduceCreateUser
+    user: reduceCreateUser,
+    login: reduceLoginUser,
+    userInfo: reduceUserInfo
     /*  */
 });

@@ -1,16 +1,12 @@
 import React, {useRef} from "react";
 import styles from './burger-ingredients.module.css'
 import Tab from "../tabs/tab";
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Ingredient } from '../ingredient/ingredient';
 import { selectTabs } from '../../services/actions/tabs'
 
-BurgerIngredients.propTypes = {
-  burgerIngredientOpen: PropTypes.func.isRequired
-}
 
-export default function BurgerIngredients({ burgerIngredientOpen }) {
+export default function BurgerIngredients() {
   const ingredients = useSelector(store => store.ingredientsSet.ingredients);
   /*  */
   const scroll = useSelector(store => store.tabs.scroll);
@@ -69,7 +65,7 @@ export default function BurgerIngredients({ burgerIngredientOpen }) {
         <section className={styles.ingredient}>
           {ingredients && ingredients.map((element) => {
             if (element.type === 'bun')
-              return <Ingredient key={element._id} burgerIngredientOpen={burgerIngredientOpen} element={element} />
+              return <Ingredient key={element._id} element={element} />
           }
           )}
         </section>
@@ -77,7 +73,7 @@ export default function BurgerIngredients({ burgerIngredientOpen }) {
         <section className={styles.ingredient}>
           {ingredients && ingredients.map((element) => {
             if (element.type === 'sauce')
-              return <Ingredient key={element._id} burgerIngredientOpen={burgerIngredientOpen} element={element} />
+              return <Ingredient key={element._id} element={element} />
           }
           )}
         </section>
@@ -85,7 +81,7 @@ export default function BurgerIngredients({ burgerIngredientOpen }) {
         <section className={styles.ingredient}>
           {ingredients && ingredients.map((element) => {
             if (element.type === 'main')
-              return <Ingredient key={element._id} burgerIngredientOpen={burgerIngredientOpen} element={element} />
+              return <Ingredient key={element._id} element={element} />
           })}
         </section>
       </div>

@@ -29,3 +29,11 @@
     justify-content: center;
     margin-top: 80px;
 }
+
+.edit {
+    margin-top: 20px;
+    margin-left: 135px;
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+}

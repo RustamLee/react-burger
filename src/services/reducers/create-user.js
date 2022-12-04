@@ -2,10 +2,14 @@ import {
   CREATE_USER,
 } from '../actions/create-user';
 
-const initialState = { user: {
-  email: '',
-  name: ''
-} };
+const initialState = {
+  success: false,
+  user:
+  {
+    email: '',
+    name: ''
+  }
+};
 
 export function reduceCreateUser(state = initialState, action) {
   switch (action.type) {
@@ -13,6 +17,7 @@ export function reduceCreateUser(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+        success: true
       }
     }
     default: {
