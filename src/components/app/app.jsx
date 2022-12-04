@@ -19,6 +19,7 @@ import { Registration } from '../../pages/registration';
 import { ForgotPassword } from '../../pages/forgot-password';
 import { ResetPassword } from '../../pages/reset-password';
 import { Profile } from '../../pages/profile';
+import { IngredientPage } from '../../pages/ingredients'
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { Main } from '../main/main';
 
@@ -71,7 +72,7 @@ export default function App() {
                     <Profile />
                 </Route>
                 <Route path='/ingredients/:id'>
-                    {/* <IngredientPage></IngredientPage> */}
+                    <IngredientPage></IngredientPage>
                 </Route>
 
                 <Route path='/' exact={true}>

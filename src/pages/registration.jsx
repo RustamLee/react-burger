@@ -24,14 +24,13 @@ export function Registration() {
             name))
     }
 
-
     return (
         <div className={styles.login}>
             <h1 className={styles.header}>Регистрация</h1>
             <form className={styles.form}>
-                <Input placeholder="Имя" onChange={e => setValue({ ...values, name: e.target.value })} />
-                <EmailInput placeholder="E-mail" onChange={e => setValue({ ...values, email: e.target.value })} />
-                <Input placeholder="Пароль" icon="HideIcon" onChange={e => setValue({ ...values, password: e.target.value })} />
+                <Input placeholder="Имя" value='value' type='text' onChange={e => setValue({ ...values, name: e.target.value })} />
+                <EmailInput placeholder="E-mail" type='email' value='value' onChange={e => setValue({ ...values, email: e.target.value })} />
+                <Input placeholder="Пароль" type='password' icon="HideIcon" value='value' onChange={e => setValue({ ...values, password: e.target.value })} />
             </form>
             <Button onClick={handleClick} htmlType="submit" type="primary" size="large">Зарегистрироваться</Button>
             <div className={styles.options}>

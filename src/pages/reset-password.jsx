@@ -26,8 +26,8 @@ export function ResetPassword() {
         <div className={styles.login}>
             <h1 className={styles.header}>Восстановление пароля</h1>
             <form className={styles.form}>
-                <Input placeholder="Введите новый пароль" icon="HideIcon" name='password' onChange={e => setValue({ ...values, password: e.target.value })} />
-                <Input placeholder="Введите код из письма" name='code' onChange={e => setValue({ ...values, code: e.target.value })} />
+                <Input placeholder="Введите новый пароль" type='password' icon="HideIcon" name='password'  value='value' onChange={e => setValue({ ...values, password: e.target.value })} />
+                <Input placeholder="Введите код из письма" type='password' name='code' value='value' onChange={e => setValue({ ...values, code: e.target.value })} />
             </form>
             <Button onClick={handleClick} htmlType="submit" type="primary" size="large">Сохранить</Button>
             <div className={styles.options}>

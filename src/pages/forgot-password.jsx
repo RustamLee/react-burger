@@ -23,7 +23,7 @@ export function ForgotPassword() {
         <div className={styles.login}>
             <h1 className={styles.header}>Восстановление пароля</h1>
             <form className={styles.form}>
-                <EmailInput placeholder="Укажите e-mail" name='email' onChange={(e) => setValue(e.target.value)} />
+                <EmailInput type='email' value='string' placeholder="Укажите e-mail" name='email' onChange={(e) => setValue(e.target.value)} />
             </form>
             <Button onClick={handleClick} htmlType="submit" type="primary" size="large">Восстановить</Button>
             <div className={styles.options}>

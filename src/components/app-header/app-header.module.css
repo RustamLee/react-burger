@@ -29,7 +29,6 @@
   color: #F2F2F3;
   min-width: 178px;
   max-height: 56px;
-  text-decoration: none;
 }
 
 .icon {
@@ -49,6 +48,7 @@
   margin: 0 0 0 9px;
   transition: .2s ease-in-out;
   color: #8585AD;
+  text-decoration: none;
 }
 
 .active {
@@ -76,11 +76,6 @@
   border-radius: 40px;
   min-width: 178px;
   max-height: 56px;
-}
-
-.title {
-  display: inline-block;
-  margin: 0 0 0 9px;
 }
 
 .personal {

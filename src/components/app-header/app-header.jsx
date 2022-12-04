@@ -11,7 +11,7 @@ export default function AppHeader() {
         <div className={styles.container}>
           <div className={styles.constructor} >
             <NavLink to={{ pathname: '/' }} className={styles.constructor}>
-              <div className={`${styles.icon} ${styles.active}`}><BurgerIcon type="primary" /></div>
+              <div className={`${styles.icon} ${styles.active} `}><BurgerIcon type="primary" /></div>
               <p className={`${styles.title} ${styles.active} text text_type_main-default ml-2`}>
                 Конструктор
               </p>
@@ -24,7 +24,7 @@ export default function AppHeader() {
             </p>
           </div>
         </div>
-        <div className={styles.logo}><Logo /></div>
+        <NavLink to={{ pathname: '/' }} className={styles.logo}><Logo /></NavLink>
         <NavLink to={{ pathname: '/login' }}>
         <div className={styles.personal}>
           <div className={styles.icon}><ProfileIcon type="secondary" /></div>
