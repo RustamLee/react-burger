@@ -1,0 +1,31 @@
+
+.profile {
+    max-width: 1920px;
+    display: grid;
+    grid-template-columns: 320px 650px;
+    gap: 60px;
+    margin: 120px 0 0 0;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    height: 192px;
+    margin-right: 60px;
+    width: 320px;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.subtitle {
+    justify-content: center;
+    margin-top: 80px;
+}

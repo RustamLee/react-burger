@@ -1,0 +1,8 @@
+.profile {
+    max-width: 1920px;
+    display: grid;
+    grid-template-columns: 320px 650px;
+    gap: 60px;
+    margin: 120px 0 0 0;
+    justify-content: center;
+}

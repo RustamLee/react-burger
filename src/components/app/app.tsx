@@ -13,7 +13,9 @@ import { Registration } from '../../pages/registration';
 import { ForgotPassword } from '../../pages/forgot-password';
 import { ResetPassword } from '../../pages/reset-password';
 import { Profile } from '../../pages/profile';
-import { IngredientPage } from '../../pages/ingredients'
+import { Feed } from '../../pages/feed';
+import { IngredientPage } from '../../pages/ingredients';
+import { OrderPage } from '../../pages/profile-order';
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 import { Main } from '../main/main';
 import ProtectedRoute from '../protected-route/protected-route';
@@ -83,7 +85,12 @@ export default function App() {
                 <ProtectedRoute forAuth={true} path='/profile' exact={true}>
                     <Profile />
                 </ProtectedRoute>
-
+               <ProtectedRoute forAuth={true} path='/feed' exact={true}>
+                    <Feed />
+                </ProtectedRoute>   
+                <ProtectedRoute forAuth={true} path='/profile/orders' exact={true}>
+                    <OrderPage />
+                </ProtectedRoute>                             
                 <Route path='/' exact={true}>
                     <Main
                         orderOpen={orderOpen} />
