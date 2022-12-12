@@ -3,6 +3,11 @@
     display: grid;
     grid-template-columns: 320px 650px;
     gap: 60px;
-    margin: 120px 0 0 0;
+    margin: 40px 0 0 0;
     justify-content: center;
+}
+
+.profile__menu {
+    margin-top: 80px;
+    display: flex;
 }

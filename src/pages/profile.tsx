@@ -6,6 +6,7 @@ import { EmailInput, Input, Button } from '@ya.praktikum/react-developer-burger-
 import { logoutUserThunk } from '../services/actions/login-user';
 import { useDispatch, useSelector } from '../utils/types'
 import { getUserInfoThunk, patchUserInfoThunk } from '../services/actions/user-info';
+import { ProfileMenu } from '../components/profile-menu/profile-menu'
 
 export function Profile() {
     const { userEmail, userName } = useSelector(state => state.userInfo.user)
@@ -43,17 +44,7 @@ export function Profile() {
 
     return (
         <div className={styles.profile}>
-            <div>
-                <nav className={styles.menu}>
-                    <NavLink to={{ pathname: '/profile' }}
-                        className={`${styles.menu} text text_type_main-medium text_color_inactive`}>Профиль</NavLink>
-                    <NavLink to={{ pathname: '/profile/orders' }}
-                        className={`${styles.menu} text text_type_main-medium text_color_inactive`}>История заказов</NavLink>
-                    <NavLink to={{ pathname: '/' }} onClick={handleClick}
-                        className={`${styles.menu} text text_type_main-medium text_color_inactive`}>Выход</NavLink>
-                </nav>
-                <p className={`${styles.subtitle} text text_type_main-small text_color_inactive`} >В этом разделе вы можете изменить свои персональные данные</p>
-            </div>
+            <ProfileMenu />
             <section>
                 <form className={styles.form}>
                     <Input

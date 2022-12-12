@@ -1,7 +1,3 @@
-  .order {
-    outline: 1px solid red;
-  }
-
   .title {
     max-width: 1240px;
     margin: 40px auto 20px;
@@ -46,6 +42,8 @@
     margin-bottom: 16px;
     margin-top: 0;
     padding: 24px;
+    width: 844px;
+
   }
 
   .data {

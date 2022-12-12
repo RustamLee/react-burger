@@ -18,6 +18,10 @@
     justify-content: center;
 }
 
+.profile__menu {
+    margin-top: 228px;
+}
+
 .form {
     text-align: center;
     display: flex;
