@@ -8,6 +8,10 @@ import { TGetNewPassword } from './recover-password';
 import { TSetNewPassword } from './reset-password';
 import { TTabs } from './tabs';
 import { TUserInfo } from './user-info';
+import { TWsActions } from './all-socket';
+import { TUserWsActions } from './user-socket';
+import { IUserSocketActions } from './user-socket';
+import { ISocketActions } from './all-socket';
 
 export type TUnionAction =
   | TCreateUserAction
@@ -20,3 +24,9 @@ export type TUnionAction =
   | TSetNewPassword
   | TTabs
   | TUserInfo
+  | TWsActions
+  | TUserWsActions
+
+export type TMiddleware =
+  | IUserSocketActions
+  | ISocketActions

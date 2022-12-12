@@ -8,9 +8,11 @@ export const apiConfig = {
   login: '/auth/login',
   logout: '/auth/logout',
   user: '/auth/user',
-  token: '/auth/token' 
-
+  token: '/auth/token',
+  socket: 'wss://norma.nomoreparties.space/orders/all',
+  userSocket: 'wss://norma.nomoreparties.space/orders'
 }
+
 
 export const checkResponse = (res: Response) => {
   if (res.ok) {

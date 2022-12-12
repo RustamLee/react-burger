@@ -4,6 +4,7 @@ import {
 } from '../actions/login-user';
 import { getCookie } from '../../utils/coockie';
 import { TUnionAction } from '../actions';
+import { type } from 'os';
 
 const initialState = {
   isLogged: !!getCookie('accessToken') ? true : false

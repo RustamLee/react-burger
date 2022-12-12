@@ -9,6 +9,7 @@ import { ThunkDispatch, ThunkAction } from "redux-thunk";
 import {store} from './store';
 import { TUnionAction } from "../services/actions";
 
+export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 
 export type AppThunk<ReturnType = void> = ActionCreator<
@@ -35,4 +36,19 @@ export type TItem = {
   id?: string | undefined
 }
 
+export type TOrder = {
+  _id: string,
+  ingredients: Array<string>,
+  status: string,
+  name: string,
+  createdAt: string,
+  updatedAt: string,
+  number: number
+}
 
+export type TOrderPayload = {
+  success: boolean,
+  orders: Array<TOrder>,
+  total: number,
+  totalToday: number
+}

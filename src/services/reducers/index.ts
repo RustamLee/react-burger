@@ -9,6 +9,8 @@ import { reduceSetPassword } from './reset-password';
 import { reduceCreateUser } from './create-user';
 import { reduceLoginUser } from './login-user';
 import { reduceUserInfo } from './user-info';
+import { userSocketReducers } from './user-socket';
+import { allSocketReducers } from './all-socket';
 
 export const mainReducer = combineReducers({
     ingredientsSet: reduceIngredients,
@@ -20,6 +22,8 @@ export const mainReducer = combineReducers({
     set: reduceSetPassword,
     user: reduceCreateUser,
     login: reduceLoginUser,
-    userInfo: reduceUserInfo
+    userInfo: reduceUserInfo,
+    allSocket: userSocketReducers,
+    userSocket: allSocketReducers
     /*  */
 });

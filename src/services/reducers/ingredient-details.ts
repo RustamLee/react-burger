@@ -4,7 +4,8 @@ import { TUnionAction } from '../actions';
 
 const initialState = {ingredient: {} };
 
-export function reduceIngredientDetails (state = initialState, action: TUnionAction) {
+
+export function reduceIngredientDetails (state = initialState, action: TUnionAction)  {
     switch (action.type) {
         case GET_INGREDIENT_DETAILS: {
             return {
