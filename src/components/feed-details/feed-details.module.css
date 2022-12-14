@@ -15,3 +15,12 @@
 .status {
     color: #00CCCC;
 }
+
+.img {
+    list-style-type: none;
+}
+
+.ingredients {
+display: flex;
+flex-direction: row;
+}
