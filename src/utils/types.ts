@@ -33,7 +33,8 @@ export type TItem = {
   image_mobile: string,
   image_large: string,
   __v: number,
-  id?: string | undefined
+  id?: string,
+  key?: string
 }
 
 export type TOrder = {

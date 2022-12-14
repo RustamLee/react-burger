@@ -19,11 +19,14 @@ import { OrderPage } from '../../pages/profile-order';
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 import { Main } from '../main/main';
 import ProtectedRoute from '../protected-route/protected-route';
+import FeedDetails from '../feed-details/feed-details';
+import { FeedPage } from '../../pages/feed-details';
+
 
 type TLocation = ReturnType<typeof useLocation>;
 
 export type TUseLocation = {
-  [key: string]: string | null | TUseLocation | TLocation,
+    [key: string]: string | null | TUseLocation | TLocation,
 };
 
 
@@ -85,17 +88,26 @@ export default function App() {
                 <ProtectedRoute forAuth={true} path='/profile' exact={true}>
                     <Profile />
                 </ProtectedRoute>
-               <ProtectedRoute forAuth={true} path='/feed' exact={true}>
+                <Route path='/feed' exact={true}>
                     <Feed />
-                </ProtectedRoute>   
+                </Route>
+                <Route path='/feed/:id' exact={true}>
+                    <FeedPage />
+                </Route>
                 <ProtectedRoute forAuth={true} path='/profile/orders' exact={true}>
                     <OrderPage />
-                </ProtectedRoute>                             
+                </ProtectedRoute>
                 <Route path='/' exact={true}>
                     <Main
                         orderOpen={orderOpen} />
                 </Route>
             </Switch>
+                        
+            {background && <Route path={`/feed/:id`}>
+                <Modal closeModal={closeModal} onClick={closeModal}>
+                    <FeedDetails />
+                </Modal>
+            </Route>}
             {background && <Route path={`/ingredients/:id`}>
                 <Modal closeModal={closeModal} onClick={closeModal}>
                     <IngredientDetails />

@@ -23,7 +23,7 @@ export const mainReducer = combineReducers({
     user: reduceCreateUser,
     login: reduceLoginUser,
     userInfo: reduceUserInfo,
-    allSocket: userSocketReducers,
-    userSocket: allSocketReducers
+    allSocket: allSocketReducers,
+    userSocket: userSocketReducers
     /*  */
 });

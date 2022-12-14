@@ -1,9 +1,6 @@
 import { Middleware, MiddlewareAPI } from 'redux';
 import { TMiddleware } from "../services/actions/index";
-import { AppDispatch,RootState } from "./types";
-
-
-
+import { AppDispatch, RootState } from "./types";
 
 export const middleware = (url: string, actions: TMiddleware): Middleware => {
   return (store: MiddlewareAPI<AppDispatch, RootState>) => {
@@ -15,7 +12,7 @@ export const middleware = (url: string, actions: TMiddleware): Middleware => {
         const { wsInit, onOpen, onClose, onOrders } = actions;
         const { isLogged } = getState().login;
         if (type === wsInit) {
-          socket = new WebSocket(`${url}${type === wsInit && payload && isLogged? `?token=${payload}` : '' }`);
+          socket = new WebSocket(`${url}${type === wsInit && payload && isLogged ? `?token=${payload}` : ''}`);
 
         }
         if (socket) {

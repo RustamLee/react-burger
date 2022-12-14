@@ -8,7 +8,7 @@ export default function ProfileOrder() {
 
   return (
     <div className={styles.orders}>
-      <OrderCard />
+      {/* <OrderCard /> */}
     </div>
   )
 }
