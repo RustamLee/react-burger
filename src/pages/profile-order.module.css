@@ -5,9 +5,15 @@
     gap: 60px;
     margin: 40px 0 0 0;
     justify-content: center;
+
 }
 
 .profile__menu {
     margin-top: 80px;
     display: flex;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column-reverse;
 }

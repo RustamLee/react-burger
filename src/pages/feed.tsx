@@ -33,7 +33,7 @@ export function Feed() {
             <h1 className={`${styles.title} text text_type_main-large`}>Соберите бургер</h1>
             <div className={styles.feed}>
                 <section className={styles.cards}>
-                    {orders.map((card, index) => {
+                    {orders.reverse().map((card, index) => {
                         if (card)
                         return <OrderCard key={`${card._id}${index}`} 
                         number={card.number} name={card.name} 

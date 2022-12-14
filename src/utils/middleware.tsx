@@ -1,6 +1,7 @@
 import { Middleware, MiddlewareAPI } from 'redux';
 import { TMiddleware } from "../services/actions/index";
 import { AppDispatch, RootState } from "./types";
+import { getCookie } from './coockie';
 
 export const middleware = (url: string, actions: TMiddleware): Middleware => {
   return (store: MiddlewareAPI<AppDispatch, RootState>) => {
@@ -8,11 +9,12 @@ export const middleware = (url: string, actions: TMiddleware): Middleware => {
     return (next) => {
       return (action) => {
         const { dispatch, getState } = store;
-        const { type, payload } = action;
+        const { type } = action;
         const { wsInit, onOpen, onClose, onOrders } = actions;
         const { isLogged } = getState().login;
+        const token = getCookie('accessToken')
         if (type === wsInit) {
-          socket = new WebSocket(`${url}${type === wsInit && payload && isLogged ? `?token=${payload}` : ''}`);
+          socket = new WebSocket(`${url}${type === wsInit && isLogged ? `?token=${token}` : ''}`);
 
         }
         if (socket) {

@@ -27,12 +27,31 @@ export const OrderCard: FC<TOrderCard> = ({ number, name, createdAt, status, ele
   }, 0)
 
   const handleClick = React.useCallback(() => {
-    history.push({
-      pathname: `/feed/${number}`,
-      state: { background: location }
-    });
+    if (location.pathname.includes('/feed')) {
+      history.push({
+        pathname: `/feed/${number}`,
+        state: { background: location }
+      });
+    }
+    if (location.pathname.includes('/profile/orders')) {//
+      history.push({
+        pathname: `/profile/orders/${number}`,
+        state: { background: location }
+      });
+    }
 
   }, [])
+
+
+  const date = (time: string)  => {
+   return new Date(Date.parse(time)).toLocaleString("ru", {
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      timeZoneName: "short",
+    })
+  }
 
 
   return (
@@ -41,17 +60,17 @@ export const OrderCard: FC<TOrderCard> = ({ number, name, createdAt, status, ele
         <li className={styles.card}>
           <p className={styles.data}>
             <span className='text text_type_digits-default'># {number}</span>
-            <span className='text text_type_main-default text_color_inactive'>{createdAt.toLocaleString()}</span>
+            <span className='text text_type_main-default text_color_inactive'>{date(createdAt)}</span>
           </p>
           <p className={`${styles.name} text text_type_main-medium mt-6`}>{name}</p>
-          <p className='text text_type_main-small'>{status}</p>
+          <p className='text text_type_main-small'>{status === 'done' ? 'Выполнено' : 'Не выполнено'}</p>
           <div className={styles.total}>
             <>
               {filteredElements.map((item, index) => {
                 if (item && index < 5)
-                  return <div 
+                  return <div
                     key={item.key}
-                    style={{backgroundImage:`url(${item.image_mobile})`}} className={styles.img}></div>
+                    style={{ backgroundImage: `url(${item.image_mobile})` }} className={styles.img}></div>
               })}
             </>
 

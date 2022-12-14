@@ -21,7 +21,6 @@ export interface IUserSocketActions {
 
 interface IUserWsConnectionInitial {
   readonly type: typeof WS_USER_CONNECTION_INITIAL
-  readonly payload: string | undefined
 }
 interface IUserWsConnectionOpen {
   readonly type: typeof WS_USER_CONNECTION_OPEN
@@ -40,10 +39,9 @@ export type TUserWsActions =
   | IUserWsConnectionClose
   | IUserWsConnectionOrders
 
-export const userWsConnectionInitial = (payload: string | undefined): IUserWsConnectionInitial => {
+export const userWsConnectionInitial = (): IUserWsConnectionInitial => {
   return {
     type: WS_USER_CONNECTION_INITIAL,
-    payload
   }
 }
 export const userWsConnectionOpen = (): IUserWsConnectionOpen => {

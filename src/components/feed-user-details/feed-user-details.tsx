@@ -1,13 +1,13 @@
 import React from "react";
-import styles from './feed-details.module.css';
+import styles from './feed-user-details.module.css';
 import { useSelector } from '../../utils/types';
 import { useParams } from "react-router-dom";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import { nanoid } from "@reduxjs/toolkit";
-import { OrderCard } from '../../components/order-card/order-card';
+import { OrderCard } from '../order-card/order-card';
 
 
-export default function FeedDetails() {
+export default function FeedUserDetails() {
     const { id } = useParams<{ id: string }>()
 
     const { orders } = useSelector(store => store.allSocket);

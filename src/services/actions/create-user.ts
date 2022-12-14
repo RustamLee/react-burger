@@ -44,7 +44,6 @@ export const createUserThunk: AppThunk = (email: string, password: string, name:
           setCookie('accessToken', accessToken.split('Bearer ')[1]);
           setCookie('refreshToken', refreshToken);
           dispatch(createUser(user));
-          // console.log(getCookie('accessToken'))
         }
       })
       .catch((err) => console.log(err))

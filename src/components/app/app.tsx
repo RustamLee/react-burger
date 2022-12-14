@@ -20,7 +20,9 @@ import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 import { Main } from '../main/main';
 import ProtectedRoute from '../protected-route/protected-route';
 import FeedDetails from '../feed-details/feed-details';
+import ProfileFeedDetails from '../profile-feed-details/profile-feed-details';
 import { FeedPage } from '../../pages/feed-details';
+import { ProfileFeedPage } from '../../pages/profile-feed-details';
 
 
 type TLocation = ReturnType<typeof useLocation>;
@@ -28,8 +30,6 @@ type TLocation = ReturnType<typeof useLocation>;
 export type TUseLocation = {
     [key: string]: string | null | TUseLocation | TLocation,
 };
-
-
 
 export default function App() {
     const { isLogged } = useSelector(state => state.login)
@@ -49,11 +49,12 @@ export default function App() {
 
 
     const closeModal = () => {
+        setOpen(false);
+        if(!isOpen)
         history.push({
             ...location.state.background as TLocation | TUseLocation,
             state: { background: null }
         });
-        setOpen(false);
     }
     const orderOpen = React.useCallback(() => {
         if (!isLogged) {
@@ -97,6 +98,9 @@ export default function App() {
                 <ProtectedRoute forAuth={true} path='/profile/orders' exact={true}>
                     <OrderPage />
                 </ProtectedRoute>
+                <ProtectedRoute forAuth={true} path='/profile/orders/:id' exact={true}>
+                    <ProfileFeedPage />
+                </ProtectedRoute>
                 <Route path='/' exact={true}>
                     <Main
                         orderOpen={orderOpen} />
@@ -108,14 +112,19 @@ export default function App() {
                     <FeedDetails />
                 </Modal>
             </Route>}
+            {background && <Route path={`/profile/orders/:id`}>
+                <Modal closeModal={closeModal} onClick={closeModal}>
+                    <ProfileFeedDetails />
+                </Modal>
+            </Route>}
             {background && <Route path={`/ingredients/:id`}>
                 <Modal closeModal={closeModal} onClick={closeModal}>
                     <IngredientDetails />
                 </Modal>
             </Route>}
-            {isOpen && (<Modal closeModal={closeModal} onClick={closeModal}>
+            {isOpen && <Modal closeModal={closeModal} onClick={closeModal}>
                 <OrderDetails />
-            </Modal>)}
+            </Modal>}
         </DndProvider>
     )
 }
