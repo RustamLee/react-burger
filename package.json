@@ -2,7 +2,7 @@
   "name": "react-burger",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./", 
+  "homepage": "https://rustamlee.github.io/react-burger/", 
 
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
