@@ -1,18 +1,16 @@
-import { compose, createStore, applyMiddleware } from 'redux';
-
+import { socketMiddleware } from './middleware';
+import { apiConfig } from './burger.config';
+import { userSocketActions } from '../services/actions/user-socket';
+import { socketActions } from '../services/actions/all-socket';
 import { mainReducer } from '../services/reducers/';
-
 import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit/';
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
-  }
-}
-
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const enhancer = composeEnhancers(applyMiddleware(thunk));
-
-export const store = createStore(mainReducer, enhancer);
+export const store = configureStore({
+  reducer: mainReducer,
+  middleware: [thunk,
+    socketMiddleware(apiConfig.socket, socketActions),
+    socketMiddleware(apiConfig.userSocket, userSocketActions)
+  ],
+  devTools: true
+})

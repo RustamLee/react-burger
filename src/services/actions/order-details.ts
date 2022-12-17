@@ -2,11 +2,12 @@
 import { apiConfig } from "../../utils/burger.config";
 import { checkResponse } from '../../utils/burger.config'
 import { AppThunk } from "../../utils/types";
+import { getCookie } from "../../utils/coockie";
 export const GET_ORDER_DETAILS: 'GET_ORDER_DETAILS' = 'GET_ORDER_DETAILS';
 
 interface IGetOrderId {
     readonly type: typeof GET_ORDER_DETAILS
-    id: string 
+    id: string
 }
 export type TGetOrderId =
     | IGetOrderId
@@ -21,7 +22,10 @@ export const getOrderIdThunk: AppThunk = (idSet: Array<string>) => {
 
         fetch(`${apiConfig.baseUrl}${apiConfig.orders}`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                authorization: 'Bearer ' + getCookie('accessToken'),
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 ingredients: idSet
             })

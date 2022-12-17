@@ -1,11 +1,17 @@
 import { SELECT_TABS, SELECT_SCROLL } from "../actions/tabs";
 import { TUnionAction } from "../actions";
-const initialState = {
+
+const initialState: TInitialState = {
   select: 'one',
   scroll: 'one'
 }
 
-export const selectTabsReducer = (state = initialState, action: TUnionAction) => {
+type TInitialState = {
+  select: string,
+  scroll: string,
+}
+
+export const selectTabsReducer = (state = initialState, action: TUnionAction): TInitialState => {
   switch (action.type) {
     case SELECT_TABS: {
       return {

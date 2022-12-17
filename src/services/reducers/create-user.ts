@@ -12,7 +12,15 @@ const initialState = {
   }
 };
 
-export function reduceCreateUser(state = initialState, action: TUnionAction) {
+type TInitialState ={
+  success: boolean,
+  user: {
+    email: string,
+    name: string,
+  }
+}
+
+export function reduceCreateUser(state = initialState, action: TUnionAction): TInitialState {
   switch (action.type) {
     case CREATE_USER: {
       return {

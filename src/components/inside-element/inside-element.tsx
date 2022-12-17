@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styles from './inside-element.module.css';
 import { DragIcon, ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 import { moveIngredient } from "../../services/actions/constructor";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '../../utils/types';
 import { useDrag, useDrop, DropTargetMonitor, XYCoord } from "react-dnd";
 import { TItem } from "../../utils/types";
 

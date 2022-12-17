@@ -9,8 +9,12 @@ export function OrderPage() {
 
     return (
         <div className={styles.profile}>
+            <div>
             <ProfileMenu />
+            </div>
+            <div className={styles.profile__orders}>
             <ProfileOrder />
+            </div>
         </div>
     )
 }

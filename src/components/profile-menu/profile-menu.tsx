@@ -43,7 +43,7 @@ export function ProfileMenu() {
 
   return (
     <div className={styles.menu}>
-                  <div>
+                  <div className={styles.profile__menu}>
                 <nav className={styles.menu}>
                     <NavLink to={{ pathname: '/profile' }}
                         className={`${styles.menu} text text_type_main-medium text_color_inactive`}>Профиль</NavLink>
