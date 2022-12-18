@@ -1,1 +1,2 @@
-export const url = 'https://norma.nomoreparties.space/api';
+export const ingredientTest = '[class^=ingredient_image]';
+export const burgerConstructorTest = '[class^=burger-constructor]';

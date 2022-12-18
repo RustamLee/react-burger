@@ -1,4 +1,6 @@
-import { url } from '../../src/utils/cypress-constants'
+import { baseUrl } from '../../src/utils/burger.config';
+import { ingredientTest } from '../../src/utils/cypress-constants';
+import { burgerConstructorTest } from '../../src/utils/cypress-constants';
 
 describe('resourse is available', () => {
   beforeEach(() => {
@@ -12,7 +14,7 @@ describe('resourse is available', () => {
   });
   it('opening the block modal_window', () => {
     cy.visit('/');
-    cy.get('[class^=ingredient_image]').first().click()
+    cy.get(ingredientTest).first().click()
     cy.contains('Детали ингредиента')
   });
 
@@ -21,9 +23,9 @@ describe('resourse is available', () => {
     cy.visit('/');
   });
   it('sucsess dragndrop element', () => {
-    cy.get('[class^=ingredient_image]').first().drag('[class^=burger-constructor]');
-    cy.get('[class^=ingredient_image]').first().drag('[class^=burger-constructor]');
-    cy.get('[class^=ingredient_image]').eq(2).drag('[class^=burger-constructor]');
+    cy.get(ingredientTest).first().drag(burgerConstructorTest);
+    cy.get(ingredientTest).first().drag(burgerConstructorTest);
+    cy.get(ingredientTest).eq(2).drag(burgerConstructorTest);
   })
   it('sucsess delete element', () => {
     cy.get('[class^=constructor-element__action]').eq(1).click()
@@ -40,7 +42,7 @@ describe('resourse is available', () => {
   it('sucsess user_autorization', () => {
     cy.get('button').contains('Войти').click();
     cy.getCookies().should('be.empty')
-    cy.intercept('POST', `${url}/auth/login`).as('login')
+    cy.intercept('POST', `${baseUrl}/auth/login`).as('login')
       .wait('@login').its('response.statusCode').should('eq', 200);
     cy.url().should('not.contain', '/login')
     cy.getCookie('accessToken').should("not.be.empty");
@@ -50,10 +52,10 @@ describe('resourse is available', () => {
 
     cy.request({
       method: 'POST',
-      url: `${url}/auth/login`,
+      url: `${baseUrl}/auth/login`,
       body: {
-        email: '123123@123.ru',
-        password: '123123',
+        email: 'rustiksagad@gmail.com',
+        password: '12345',
       }
     })
       .as('loginResponse')
@@ -66,7 +68,7 @@ describe('resourse is available', () => {
     const authorization = `${Cypress.env('token')}`;
     cy.request({
       method: 'POST',
-      url: `${url}/orders`,
+      url: `${baseUrl}/orders`,
       headers: {
         'Content-Type': 'application/json',
         authorization,
