@@ -1,6 +1,7 @@
-import { baseUrl } from '../../src/utils/burger.config';
 import { ingredientTest } from '../../src/utils/cypress-constants';
 import { burgerConstructorTest } from '../../src/utils/cypress-constants';
+import { apiConfig } from '../../src/utils/burger.config';
+
 
 describe('resourse is available', () => {
   beforeEach(() => {
@@ -42,16 +43,17 @@ describe('resourse is available', () => {
   it('sucsess user_autorization', () => {
     cy.get('button').contains('Войти').click();
     cy.getCookies().should('be.empty')
-    cy.intercept('POST', `${baseUrl}/auth/login`).as('login')
-      .wait('@login', { timeout: 30000 }).its('response.statusCode').should('eq', 200);
+    cy.intercept('POST', `${apiConfig.baseUrl}/auth/login`).as('login')
+      .wait('@login').its('response.statusCode').should('eq', 200);
     cy.url().should('not.contain', '/login')
     cy.getCookie('accessToken').should("not.be.empty");
   })
+
   it('sucsess open order_details', () => {
 
     cy.request({
       method: 'POST',
-      url: `${baseUrl}/auth/login`,
+      url: `${apiConfig.baseUrl}/auth/login`,
       body: {
         email: 'rustiksagad@gmail.com',
         password: '12345',
@@ -67,7 +69,7 @@ describe('resourse is available', () => {
     const authorization = `${Cypress.env('token')}`;
     cy.request({
       method: 'POST',
-      url: `${baseUrl}/orders`,
+      url: `${apiConfig.baseUrl}/orders`,
       headers: {
         'Content-Type': 'application/json',
         authorization,
