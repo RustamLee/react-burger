@@ -43,11 +43,10 @@ describe('resourse is available', () => {
     cy.get('button').contains('Войти').click();
     cy.getCookies().should('be.empty')
     cy.intercept('POST', `${baseUrl}/auth/login`).as('login')
-      .wait('@login').its('response.statusCode').should('eq', 200);
+      .wait('@login', { timeout: 30000 }).its('response.statusCode').should('eq', 200);
     cy.url().should('not.contain', '/login')
     cy.getCookie('accessToken').should("not.be.empty");
   })
-
   it('sucsess open order_details', () => {
 
     cy.request({
