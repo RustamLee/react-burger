@@ -1,0 +1,107 @@
+.title {
+  max-width: 1240px;
+  margin: 40px auto 20px;
+}
+
+.feed {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 60px;
+  max-width: 1240px;
+  height: 70vh;
+  margin: 0 auto 0;
+}
+
+.cards {
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 70vh;
+}
+
+.cards::-webkit-scrollbar {
+  width: 12px;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: #2F2F37;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #8585AD;
+  border: 3px solid #2F2F37;
+  border-radius: 6px;
+}
+
+.card {
+  width: 584px;
+  height: 200px;
+  list-style-type: none;
+  background-color: #1C1C21;
+  border-radius: 40px;
+  margin-bottom: 16px;
+  margin-top: 0;
+  padding: 24px;
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.price {
+  display: flex;
+  text-align: center;
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 2px;
+  object-fit: cover;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #4C4CFF;
+}
+
+.status {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 35px;
+  width: 100%;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 8px;
+  column-gap: 2px;
+  padding: 0;
+  margin: 0;
+  height: 152px;
+}
+
+.order {
+  list-style-type: none;
+}
+
+.ready {
+  color: #00CCCC;
+  list-style-type: none;
+}
+
+.summary {
+  margin-top: 60px;
+}

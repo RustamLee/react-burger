@@ -1,0 +1,7 @@
+.profili__orders {
+    max-width: 844px;
+    max-height: 100px;
+    outline: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}

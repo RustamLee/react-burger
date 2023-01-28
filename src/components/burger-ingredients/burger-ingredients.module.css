@@ -5,7 +5,7 @@
 .container {
   overflow-y: auto;
   width: 600px;
-  height: 70vh;
+  height: 663px;
 }
 
 .container::-webkit-scrollbar {

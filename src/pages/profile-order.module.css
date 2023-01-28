@@ -1,0 +1,36 @@
+.profile {
+    max-width: 1920px;
+    display: grid;
+    grid-template-columns: 320px 650px;
+    gap: 60px;
+    margin: 40px 0 0 0;
+    justify-content: center;
+
+}
+
+.profile__menu {
+    margin-top: 80px;
+    display: flex;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+    max-height: 600px;
+
+}
+
+.orders::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .orders::-webkit-scrollbar-track {
+    background: #2F2F37;
+  }
+  
+  .orders::-webkit-scrollbar-thumb {
+    background: #8585AD;
+    border: 3px solid #2F2F37;
+    border-radius: 6px;
+  }
