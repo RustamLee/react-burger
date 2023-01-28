@@ -51,7 +51,6 @@ export const loginUserThunk: AppThunk = (email: string, password: string) => {
           setCookie('accessToken', accessToken.split('Bearer ')[1]);
           setCookie('refreshToken', refreshToken);
           dispatch(loginUser(email, password));
-          // console.log(getCookie('accessToken'))
         }
       })
       .catch((err) => console.log(err))

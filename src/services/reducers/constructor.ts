@@ -19,7 +19,7 @@ const initialState: TInitialState = {
     bun: []
 };
 
-export function reduceItems(state = initialState, action: TUnionAction) {
+export function reduceItems(state = initialState, action: TUnionAction): TInitialState {
     switch (action.type) {
         case DO_INGREDIENT: {
             return {

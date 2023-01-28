@@ -3,6 +3,7 @@ import {
   PATCH_USER_INFO
 } from '../actions/user-info';
 import { TUnionAction } from '../actions';
+
 const initialState = {
   user: {
     userEmail: "",
@@ -10,7 +11,15 @@ const initialState = {
   }
 }
 
-export function reduceUserInfo(state = initialState, action: TUnionAction) {
+type TInitialState ={
+  user: {
+    userEmail: string,
+    userName: string,
+  }
+}
+
+
+export function reduceUserInfo(state = initialState, action: TUnionAction): TInitialState {
   switch (action.type) {
     case GET_USER_INFO: {
       return {

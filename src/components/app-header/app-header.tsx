@@ -18,12 +18,14 @@ export default function AppHeader() {
               </p>
             </NavLink>
           </div>
+          <NavLink to={{ pathname: '/feed' }}>
           <div className={styles.order}>
             <div className={styles.icon}><ListIcon type="secondary" /></div>
             <p className={`${styles.title} text text_type_main-default ml-2`}>
               Лента заказов
             </p>
           </div>
+          </NavLink>
         </div>
         <NavLink to={{ pathname: '/' }} className={styles.logo}><Logo /></NavLink>
         <NavLink to={isLogged ? { pathname: '/profile' } : { pathname: '/login' }}>

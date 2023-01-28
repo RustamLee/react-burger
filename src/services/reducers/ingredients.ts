@@ -8,7 +8,7 @@ type TInitialState = {
 }
 const initialState: TInitialState = { ingredients: [] };
 
-export function reduceIngredients(state = initialState, action: TUnionAction) {
+export function reduceIngredients(state = initialState, action: TUnionAction): TInitialState {
     switch (action.type) {
         case GET_INGREDIENTS_SUCCESS: {
             return {
